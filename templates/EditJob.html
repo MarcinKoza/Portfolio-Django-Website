@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href=" {% static 'mycss.css' %} ">
+    <a href="{% url 'main_job' %}">My jobs</a>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {%   csrf_token %}
+        {{ form  }}
+        <button type="submit">Update job info</button>
+    </form>
+</body>
+</html>

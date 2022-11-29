@@ -1,0 +1,26 @@
+.col-sm-3 {
+    background-color: rgba(94, 93, 93, 0.65);
+}
+
+ .center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+
+
+.spacing {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 15px;
+    border-collapse: separate;
+    table-layout: fixed;
+    width: 80%;
+    border-spacing: 0 5px;
+}
