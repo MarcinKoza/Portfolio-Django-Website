@@ -1,0 +1,26 @@
+{% extends 'Base.html' %}
+{% block content %}
+            <div style="margin-left: 5%;margin-right: 5%; margin-top: 20px;">
+                {% for school in education %}
+
+
+                            <h5 style="line-height: 5em;"><img src="/media/{{ school.univeristysign }}"
+                                                           style="height: 80px; width: 80px;">
+
+                            <b>{{ school.level }}</b>
+                                <b>{{ univeristyname }}</b>
+                            <span style="float: right;">{{ school.period }}</span></h5>
+
+                        <hr>
+
+
+                {% endfor %}
+                <br>
+
+                {% if user.is_authenticated %}
+                    <a href="">Add edu </a>
+                {% endif %}
+            </div>
+    <br><br>
+
+{% endblock %}

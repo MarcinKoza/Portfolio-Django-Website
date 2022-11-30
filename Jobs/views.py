@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
-from .models import MyJob
+from .models import MyJob,JobDuty
 from Skills.models import MySkill
 from .forms import MyJobForm
 from django.contrib.auth.decorators import login_required
@@ -8,9 +8,9 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def jobs_response(request):
-    all_jobs=MyJob.objects.all()
-    all_skills = MySkill.objects.all()
-    return render(request,"Jobs.html",{"jobs":all_jobs,"skills":all_skills})
+    all_jobs=JobDuty.objects.prefetch_related().all()
+    all_skills = MySkill.objects.all().order_by('-level')
+    return render(request,"Jobs.html",{"jobs":all_jobs,"skills":all_skills,})
 
 @login_required
 def new_job_response(request):

@@ -1,4 +1,5 @@
 {% load static %}
+{% load bootstrap %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 <body>
     <form method="post" enctype="multipart/form-data">
         {%   csrf_token %}
-        {{ form  }}
+        {{ form|bootstrap }}
         <button type="submit">Update job info</button>
     </form>
 </body>

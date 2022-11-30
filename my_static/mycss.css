@@ -1,7 +1,12 @@
 .col-sm-3 {
     background-color: rgba(94, 93, 93, 0.65);
 }
+.col-sm-9 {
+    background-color: rgba(94, 93, 93, 0.25);
+    padding-left: 0;
+    padding-right: 0;
 
+}
  .center {
   margin-left: auto;
   margin-right: auto;
@@ -23,4 +28,44 @@
     table-layout: fixed;
     width: 80%;
     border-spacing: 0 5px;
+}
+
+.bigtitle{
+
+    font-size: 4em;
+    text-align: center;
+    height: 150px;
+    position: relative;
+    top: 60px;
+    width: 100%;
+}
+.margin5 {
+
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+.navbarbackground {
+
+
+    background-color: rgb(59, 57, 57);
+}
+
+body {
+      position: fixed;
+       left: 10%;
+
+}
+
+.scrool {
+    overflow-y: scroll;
+
+    position: relative;
+    height: 60%;
+
+
+
+
 }
