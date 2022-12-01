@@ -1,16 +1,29 @@
-.col-sm-3 {
-    background-color: rgba(94, 93, 93, 0.65);
-}
-.col-sm-9 {
-    background-color: rgba(94, 93, 93, 0.25);
+.col-sm-4 {
+    background-image: linear-gradient(to left, rgba(59, 57, 57, 1), rgba(94, 93, 93, 0.13));
+    width: 33%;
+    min-height:1000px;
     padding-left: 0;
     padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bl
+
+}
+.col-sm-8 {
+
+    background-image: linear-gradient(to right, rgba(59, 57, 57, 1), rgba(94, 93, 93, 0.13));
+    padding-left: 0;
+    padding-right: 0;
+    min-height:1000px;
+    width: 67%;
+
+
 
 }
  .center {
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 119%;
 }
 
 .alignleft {
@@ -23,7 +36,7 @@
 
 .spacing {
       font-family: 'Helvetica', 'Arial', sans-serif;
-    font-size: 15px;
+    font-size: 100%;
     border-collapse: separate;
     table-layout: fixed;
     width: 80%;
@@ -34,9 +47,9 @@
 
     font-size: 4em;
     text-align: center;
-    height: 150px;
+    height: 40%;
     position: relative;
-    top: 60px;
+    top: 40%;
     width: 100%;
 }
 .margin5 {
@@ -54,18 +67,30 @@
 }
 
 body {
-      position: fixed;
-       left: 10%;
+    position: absolute;
+    left: auto;
+    right: auto;
+    min-height:100%;
+    width:100%;
+    height: 65%;
 
 }
 
 .scrool {
-    overflow-y: scroll;
-
-    position: relative;
-    height: 60%;
 
 
+    position: relative ;
+    height: 100%;
+}
 
+html{
+    min-height:80%;/* make sure it is at least as tall as the viewport */
+    max-height:90%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+
+#textbox{
+            font-size:1em;
+            width: 100%;
 
 }

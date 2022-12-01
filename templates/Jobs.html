@@ -1,6 +1,7 @@
 {% extends 'Base.html' %}
 {% block content %}
-            <div style="margin-left: 5%;margin-right: 5%; margin-top: 20px;">
+            <div style="margin-left: 5%;margin-right: 5%; margin-top: 20px; min-height:100%">
+
                 {% for job in jobs|dictsortreversed:"job.period" %}
 
                     {% ifchanged job.title %}

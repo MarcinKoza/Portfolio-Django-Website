@@ -6,7 +6,7 @@ from .models import MyEdu,MyCou
 # admin.site.register(MyJob)
 @admin.register(MyEdu)
 class MyEduAdmin(admin.ModelAdmin):
-    fields = ["level", "univeristyname", "period","univeristysign"]
+    fields = ["level", "univeristyname", "period","univeristysign", "univeristytopic"]
     list_display = ["level", "univeristyname","period"]
 
 @admin.register(MyCou)
