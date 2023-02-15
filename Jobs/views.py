@@ -6,11 +6,15 @@ from .forms import MyJobForm
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
 def jobs_response(request):
-    all_jobs=JobDuty.objects.prefetch_related().all()
+    all_jobs=MyJob.objects.all()
+    job_list=[]
+    for job in all_jobs:
+        job_duties=job.jobduty_set.all()
+        job_list.append({"job":job,"duties":job_duties})
     all_skills = MySkill.objects.all().order_by('-level')
-    return render(request,"Jobs.html",{"jobs":all_jobs,"skills":all_skills,})
+    return render(request,"Jobs.html",{"jobs":job_list,"skills":all_skills,})
+
 
 @login_required
 def new_job_response(request):
@@ -41,4 +45,4 @@ def delete_job_response(request,id):
         job.delete()
         return redirect(jobs_response)
 
-    return render(request,"Accept.html", {'job':job})
+    return render(request,"Accept.html", {'item':job})

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href=" {% static 'mycss.css' %} ">
-    <a href="{% url 'main_job' %}">My jobs</a>
+    <a href="{{request.META.HTTP_REFERER}}">Back    </a>
 </head>
 <body>
     <form method="post" enctype="multipart/form-data">

@@ -2,29 +2,28 @@
 {% block content %}
             <div style="margin-left: 5%;margin-right: 5%; margin-top: 20px; min-height:100%">
 
-                {% for job in jobs|dictsortreversed:"job.period" %}
+                {% for item in jobs|dictsortreversed:"job.period" %}
 
-                    {% ifchanged job.title %}
-                        {% if user.is_authenticated %}
-                            <a href="{% url 'edit_job' job.job.pk %}">Edit</a>
-                            <a href="{% url 'delete_job' job.job.pk %}">delete</a>
-                        {% endif %}
-                        <h5 style="line-height: 5em;"><img src="/media/{{ job.companysign }}"
+
+
+                        <h5 style="line-height: 5em;"><img src="/media/{{ item.job.companysign }}"
                                                            style="height: 50px; width: 110px;">
 
-                            <b>{{ job.title }}</b>
-                            <span style="float: right;">{{ job.period }}</span></h5>
+                            <b>{{ item.job.title }}</b>
+                            <span style="float: right;">{{ item.job.period }}</span></h5>
 
                         <hr>
-                    {% endifchanged %}
-                    <li>{{ job.duty }}</li>
-
+                    {% for duty in item.duties %}
+                        <li>{{ duty }}</li>
+                    {% endfor %}
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'edit_job' item.job.pk %}">Edit</a>
+                            <a href="{% url 'delete_job' item.job.pk %}">delete</a>
+                        {% endif %}
 
                 {% endfor %}
-                <br>
-
                 {% if user.is_authenticated %}
-                    <a href="{% url 'new_job' %}">Add job </a>
+                    <a href="{% url 'new_job' %}" style="float: right;">Add job </a>
                 {% endif %}
             </div>
     <br><br>

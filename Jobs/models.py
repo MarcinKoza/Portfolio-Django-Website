@@ -12,6 +12,7 @@ class MyJob(models.Model):
     def __str__(self):
         return self.title+' '+self.company
 
+
 class JobDuty(models.Model):
     duty = models.CharField(max_length=150)
     job = models.ForeignKey(MyJob, on_delete=models.CASCADE)
@@ -27,21 +28,5 @@ class JobDuty(models.Model):
     def __str__(self):
         return self.duty
 
-    @property
-    def  title(self):
-        return self.job.title
-    @property
-    def  company(self):
-        return self.job.company
-    @property
-    def  period(self):
-        return self.job.period
-    @property
-    def  descripiton(self):
-        return self.job.descripiton
-    @property
-    def  companysign(self):
-        return self.job.companysign
-    @property
-    def  id(self):
-        return self.job.id
+    class Meta:
+        ordering = ('-importance',)

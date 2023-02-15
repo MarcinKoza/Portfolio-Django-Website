@@ -2,31 +2,47 @@
 {% block content %}
             <div style="margin-left: 5%;margin-right: 5%; margin-top: 20px; min-height:100%">
                 <h4>Main Education:</h4>
-                {% for school in education %}
+                {% for school in education %}   <hr>
+
 
 
                             <h5 style="line-height: 4em;"><img src="/media/{{ school.univeristysign }}"
                                                            style="height: 80px; width: 80px; ">
                             <b>{{ school.univeristyname }}</b><span style="float: right;">{{ school.period }}</span><br>
                             <b>{{ school.level }} :</b>
-                            </b>{{ school.univeristytopic }}<br>
-</h5>
+                            </b>{{ school.univeristytopic }}<br></h5>
+                                                        {% if user.is_authenticated %}
+                            <a href="{% url 'edit_edu' school.pk %}">Edit</a>
+                            <a href="{% url 'delete_edu' school.pk %}">delete</a>
+                        {% endif %}
 
 
-                        <hr>
+
+
+
 
 
                 {% endfor %}
-                <br>
+                                    {% if user.is_authenticated %}
+                        <a href="new_edu" style="float: right;">Add education </a>
+                    {% endif %}
+                <br><hr>
 
                 <h4>Additional courses:</h4>
                 {% for cours in courses %}
-                    <li>{{ cours.topic }}</li>
+                    <li>{{ cours.topic }}
+                                                                        {% if user.is_authenticated %}
+                        <div style="float: right;">
+                            <a href="{% url 'edit_cou' cours.pk %}">Edit</a>
+                            <a href="{% url 'delete_cou' cours.pk %}">delete</a>
+                        </div>
+                        {% endif %}
+                        </li>
                 {% endfor %}
 
 
                 {% if user.is_authenticated %}
-                    <a href="">Add edu </a>
+                    <a href="new_cou">Add course </a>
                 {% endif %}
             </div>
     <br><br>
